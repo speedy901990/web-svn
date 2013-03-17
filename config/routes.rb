@@ -1,4 +1,6 @@
 WebSvn::Application.routes.draw do
+  root :to => "home#index"
+
  # get "sessions/new"
   #get "users/new"
   

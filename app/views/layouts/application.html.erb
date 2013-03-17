@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>WebSvn</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
- 
- 
-
+  
   <%= csrf_meta_tags %>
-  <div id="user_nav">
-	<% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
-	<% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "log in", log_in_path %>
-	<% end %>
+  <div class="d1">
+	<div class="d2">
+	  <% if current_user %>
+	  Logged in as <%= current_user.email %>.
+	  <%= link_to "Log out", log_out_path %>
+	  <% else %>
+	  <%= link_to "Sign up", sign_up_path %> or
+	  <%= link_to "log in", log_in_path %>
+	  <% end %>
+	</div>
   </div>
 
   <% flash.each do |name, msg| %>
@@ -23,8 +25,11 @@
   <% end %>
 </head>
 <body>
-
-<%= yield %>
+  <div class="content">
+	<div class="content_resize">
+	  <%= yield %>
+	</div>
+  </div>
 
 </body>
 </html>

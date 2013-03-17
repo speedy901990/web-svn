@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>WebSvn</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  
-  <%= csrf_meta_tags %>
-  <div class="d1">
-	<div class="d2">
-	  <% if current_user %>
-	  Logged in as <%= current_user.email %>.
-	  <%= link_to "Log out", log_out_path %>
-	  <% else %>
-	  <%= link_to "Sign up", sign_up_path %> or
-	  <%= link_to "log in", log_in_path %>
-	  <% end %>
-	</div>
-  </div>
+  <head>
+	<title>WebSvn</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 
-  <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-</head>
-<body>
-  <div class="content">
-	<div class="content_resize">
+  </head>
+  <body>
+	<div class="title_bar">
+	  <div class="title_logo">
+		
+	  </div>
+	  <div class="title_login">
+		<% if current_user %>
+		Logged in as <%= current_user.email %>.
+		<%= link_to "Log out", log_out_path %>
+		<% else %>
+		<%= link_to "Sign up", sign_up_path %> or
+		<%= link_to "Log in", log_in_path %>
+		<% end %>
+	  </div>
+	</div>	
+	<div class="content">
 	  <%= yield %>
 	</div>
-  </div>
-
-</body>
+  </body>
 </html>

@@ -23,14 +23,30 @@
 	  </login>
 	</div>	
 	<div class="content">
-	  <nav></nav>
-	  <main>
-		<%= yield %>
-	  </main>
-	  <aside></aside>
+	  <nav>
+		<div id='cssmenu'>
+		  <ul>
+			<li class='active'><a href='index.html'><span>Home</span></a></li>
+			<!--li class='has-sub'><a href='#'><span>Products</span></a>
+				<ul>
+				  <li><a href='#'><span>Product 1</span></a></li>
+				  <li class='last'><a href='#'><span>Product 2</span></a></li>
+				</ul>
+			</li-->
+			<li><a href='#'><span>Contact</span></a></li>
+			<li class='last'><a href='#'><span>About</span></a></li>
+		  </ul>
+		</div>
+	  </nav>
+	  <sub>
+		<main>
+		  <%= yield %>
+		</main>
+		<aside></aside>
+	  </sub>
 	</div>
 	<div class="footer">
-	  <poweredLogo></poweredLogo>
+	  <a id="poweredLogo" target="blank" href="http://rubyonrails.org/"></a>
 	  <poweredText>
 		Powered by 
 	  </poweredText>

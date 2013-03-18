@@ -10,10 +10,9 @@
 
   </head>
   <body>
-	<div class="header_bar">
-	  <div class="header_logo">
-	  </div>
-	  <div class="header_login">
+	<div class="header">
+	  <logo></logo>
+	  <login>
 		<% if current_user %>
 		Logged in as <%= current_user.email %>.
 		<%= link_to "Log out", log_out_path %>
@@ -21,16 +20,20 @@
 		<%= link_to "Sign up", sign_up_path %> or
 		<%= link_to "Log in", log_in_path %>
 		<% end %>
-	  </div>
+	  </login>
 	</div>	
 	<div class="content">
-	  <%= yield %>
+	  <nav></nav>
+	  <main>
+		<%= yield %>
+	  </main>
+	  <aside></aside>
 	</div>
 	<div class="footer">
-	  <div class="footer_logo"></div>	 
-	  <div class="footer_content">
+	  <poweredLogo></poweredLogo>
+	  <poweredText>
 		Powered by 
-	  </div>
+	  </poweredText>
 	</div>
   </body>
 </html>

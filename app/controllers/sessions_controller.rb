@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   
   def destroy
     session[:user_id] = nil
-    flash.now[:notice] = "TEST MESSAGE"
+    #flash.now[:notice] = "TEST MESSAGE"
     redirect_to root_url, :notice => "Logged out!"
     
   end

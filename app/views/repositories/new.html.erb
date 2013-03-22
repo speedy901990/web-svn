@@ -1,0 +1,8 @@
+<h1>Enter repository name</h1>
+<%= form_for @repository do |f| %>
+  <p>
+    <%= f.label :repo_name %>
+    <%= f.text_field :repo_name %>  
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>

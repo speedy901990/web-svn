@@ -7,8 +7,8 @@ class RepositoriesController < ApplicationController
     @repository = Repository.new(params[:repository])
     if @repository.save
       #par = params[:repository]
-      aaa = params[:repository][:repo_name]
-      @result = %x[script/create_repo.sh #{aaa}]
+      par = params[:repository][:repo_name]
+      @result = %x[script/create_repo.sh #{par}]
       redirect_to root_url
     else
       render "new"

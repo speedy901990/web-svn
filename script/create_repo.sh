@@ -1,2 +1,2 @@
 #!/bin/sh
-svnadmin create "repositories/KURWA"
+svnadmin create "repositories/"$1

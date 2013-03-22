@@ -26,14 +26,14 @@
 	  <nav>
 		<div id='cssmenu'>
 		  <ul>
-			<li class="<%= "highlighted" if params[:controller] == "home" %>"><%= link_to "Home", root_path %></li>
-			<!--li class='has-sub'><a href='#'><span>Products</span></a>
+			<li/>
+<li><%= link_to "Home", root_path %></li>
+			<li class='has-sub'><a href="repositories"><span>Repository</span></a>
 				<ul>
-				  <li><a href='#'><span>Product 1</span></a></li>
-				  <li class='last'><a href='#'><span>Product 2</span></a></li>
+				  <li><a href="/create_repo"><span>Create</span></a></li>
+				  <li class='last'><a href="/delete_repo"><span>Delete</span></a></li>
 				</ul>
-			</li-->
-			<li><%= link_to "Contact", root_path %></li>
+			</li>
 			<li class="last"><%= link_to "About", root_path %></li>
 		  </ul>
 		</div>

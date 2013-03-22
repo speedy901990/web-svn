@@ -1,7 +1,19 @@
 class RepositoriesController < ApplicationController
-  def create_repo
-  	@repo_name = String(params[:repo_name])
-  	@path = "repositories/" + @repo_name
-  	@result = %x[svnadmin create @path]
+  def new
+    @repository = Repository.new
+  end
+  def create
+    
+    @repository = Repository.new(params[:repository])
+    if @repository.save
+      #par = params[:repository]
+      aaa = params[:repository][:repo_name]
+      @result = %x[script/create_repo.sh #{aaa}]
+      redirect_to root_url
+    else
+      render "new"
+    end
+  end
+  def delete_repo
   end
 end

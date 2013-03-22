@@ -4,7 +4,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password_hash
       t.string :password_salt
-
+      t.string :user_status
+      
       t.timestamps
     end
   end

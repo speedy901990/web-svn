@@ -28,9 +28,10 @@
 		  <ul>
 			<li/>
 <li><%= link_to "Home", root_path %></li>
-			<li class='has-sub'><a href="repositories"><span>Repository</span></a>
+			<li class='has-sub'><%= link_to "Repository",
+			repositories_path %>
 			  <ul>
-				  <li><a href="/repositories/new"><span>Create</span></a></li>
+				  <li><%= link_to "Create", new_repository_path %></li>
 				</ul>
 			</li>
 			<li class="last"><%= link_to "About", root_path %></li>

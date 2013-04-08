@@ -30,8 +30,11 @@ class RepositoriesController < ApplicationController
   end
 
   def destroy
-    @repositories = Repository.find(params[:id])
-    @repositories.destroy
+    
+    @repository = Repository.find(params[:id])
+    par = @repository.repo_name
+    @result = %x[script/delete_repo.sh #{par}]
+    @repository.destroy
 
     respond_to do |format|
       format.html { redirect_to repositories_path }

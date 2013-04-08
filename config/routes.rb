@@ -1,4 +1,18 @@
 WebSvn::Application.routes.draw do
+  get "hooks/new"
+
+  get "hooks/create"
+
+  get "hooks/index"
+
+  get "hooks/destroy"
+
+  get "hooks/show"
+
+  get "hooks/update"
+
+  get "hooks/edit"
+
   #get "repositories/create_repo"
 
   root :to => "home#index"

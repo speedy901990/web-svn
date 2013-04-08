@@ -13,9 +13,12 @@ class RepositoriesController < ApplicationController
       render "new"
     end
   end
-  def delete_repo
-    #@items = Repository.find(params[:id])#.return_items
-    #@repository = Repository.find(params[:id])
-    render "delete_repo"
+  def index
+    @repositories = Repository.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @repositories }
+    end
   end
 end

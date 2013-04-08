@@ -8,7 +8,7 @@
 
 <% @repositories.each do |f| %>
   <tr>
-    <td><%= f.name %></td>
+    <td><%= f.repo_name %></td>
     <td><%= link_to 'Show', f %></td>
     <td><%= link_to 'Edit', edit_repository_path(f) %></td>
     <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>

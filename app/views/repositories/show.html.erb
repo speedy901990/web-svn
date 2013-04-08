@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Repository name:</b><br/>
+  <%= @repository.repo_name %>
+</p>
+<p>
+  <b>Description</b><br/>
+  <%= @repository.description %>
+</p>
+<p>
+  <b>Members:</b><br/>
+</p>
+
+<%= link_to 'Edit', edit_repository_path(@repository) %> |
+<%= link_to 'Back', repositories_path %>

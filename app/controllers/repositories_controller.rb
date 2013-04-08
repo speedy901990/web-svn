@@ -1,7 +1,13 @@
 class RepositoriesController < ApplicationController
   def new
     @repository = Repository.new
-  end
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @repository }
+    end
+ end
+
   def create    
     @repository = Repository.new(params[:repository])
     if @repository.save
@@ -13,12 +19,49 @@ class RepositoriesController < ApplicationController
       render "new"
     end
   end
+
   def index
     @repositories = Repository.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @repositories }
+    end
+  end
+
+  def destroy
+    @repositories = Repository.find(params[:id])
+    @repositories.destroy
+
+    respond_to do |format|
+      format.html { redirect_to repositories_path }
+      format.json { head :no_content }
+    end
+  end
+  def edit
+    @repository = Repository.find(params[:id])
+  end
+
+  def show
+    @repository = Repository.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @repository }
+    end
+  end
+  
+  def update
+    @repository = Repository.find(params[:id])
+
+    respond_to do |format|
+      if @repository.update_attributes(params[:repository])
+        format.html { redirect_to repositories_path, notice: 'Repository was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @repository.errors, status: :unprocessable_entity }
+      end
     end
   end
 end

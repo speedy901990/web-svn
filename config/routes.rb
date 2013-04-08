@@ -9,8 +9,6 @@ WebSvn::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
-  get "create_repo" => "repositories#new", :as => "create_repo"
-  get "delete_repo" => "repositories#delete_repo", :as => "delete_repo"
   
   resources :users
   resources :sessions

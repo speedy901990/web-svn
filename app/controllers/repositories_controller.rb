@@ -15,5 +15,16 @@ class RepositoriesController < ApplicationController
     end
   end
   def delete_repo
+
   end
+  def index
+    @repositories = Repository.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @repositories }
+    end
+  end
+
+
 end

@@ -40,7 +40,7 @@ class HooksController < ApplicationController
   end
 
   def show
-    @myfile = File.read("repositories/kurwa/hooks/post-commit.tmpl")
+    @myfile = File.read("repositories/testa/hooks/post-commit.tmpl")
     
     # @hook = Hook.find(params[:id])
 
@@ -51,20 +51,22 @@ class HooksController < ApplicationController
   end
 
   def update
-     @hook = Hook.find(params[:id])
+    # @hook = Hook.find(params[:id])
 
-    respond_to do |format|
-      if @hook.update_attributes(params[:repository])
-        format.html { redirect_to hooks_path, notice: 'Hook was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @hook.errors, status: :unprocessable_entity }
-      end
-    end
+    #respond_to do |format|
+      @test = params[:message]
+      #if @hook.update_attributes(params[:repository])
+        #format.html { redirect_to hooks_path, notice: 'Hook was successfully updated.' }
+        #format.json { head :no_content }
+      #else
+      #  format.html { render action: "edit" }
+      #  format.json { render json: @hook.errors, status: :unprocessable_entity }
+      #end
+    #end
   end
 
   def edit
-    @hook = Hook.find(params[:id])
+   # @hook = Hook.find(params[:id])
+    @myfile = File.read("repositories/testa/hooks/post-commit.tmpl")
   end
 end

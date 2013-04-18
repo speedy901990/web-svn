@@ -1,2 +1,6 @@
 <h1>Hooks#edit</h1>
+<%= form_tag() do %>
+<%= text_area_tag :message , @myfile, :size => "100x60" %>
+<%= submit_tag("save") %>
+<% end %>
 <p>Find me in app/views/hooks/edit.html.erb</p>

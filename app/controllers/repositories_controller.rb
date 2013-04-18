@@ -11,7 +11,6 @@ class RepositoriesController < ApplicationController
   def create    
     @repository = Repository.new(params[:repository])
     if @repository.save
-      #par = params[:repository]
       par = params[:repository][:repo_name]
       @result = %x[script/create_repo.sh #{par}]
       redirect_to :controller => 'home', :action => 'index'

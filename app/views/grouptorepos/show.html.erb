@@ -1,2 +1,17 @@
-<h1>GroupToRepo#show</h1>
-<p>Find me in app/views/group_to_repo/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Relation id:</b><br/>
+  <%= @grouptorepo.id %>
+</p>
+<p>
+  <b>Group id:</b><br/>
+  <%= @grouptorepo.group_id %>
+</p>
+<p>
+  <b>Repository id:</b><br/>
+  <%= @grouptorepo.repository_id %>
+</p>
+
+<%= link_to 'Edit', edit_grouptorepo_path(@grouptorepo) %> |
+<%= link_to 'Back', grouptorepos_path %>

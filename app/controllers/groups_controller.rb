@@ -13,6 +13,11 @@ class GroupsController < ApplicationController
   end
 
   def destroy
-
+    @group = Group.find(params[:id])
+    @group.destroy
+    respond_to do |format|	
+      format.html { redirect_to repositories_path }
+      format.json { head :no_content }
+    end
   end
 end

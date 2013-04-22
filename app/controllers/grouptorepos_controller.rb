@@ -15,7 +15,12 @@ class GrouptoreposController < ApplicationController
   def show
   end
 
-  def destroy
-  	format.js {render :action => "alert('wyjebane');"}
-  end
+ def destroy    
+   @repotogroup = Grouptorepo.find(params[:repository_id])
+   @repotogroup.destroy
+   respond_to do |format|	
+     format.html { redirect_to repositories_path }
+     format.json { head :no_content }
+   end
+ end
 end

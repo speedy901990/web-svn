@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Repository name:</b><br/>
-  <%= @repository.repo_name %>
+  <b>Group name:</b><br/>
+  <%= @group.group_name %>
 </p>
 <p>
   <b>Description</b><br/>
-  <%= @repository.description %>
+  <%= @group.description %>
 </p>
 <p>
   <b>Members:</b><br/>
 </p>
 
-<%= link_to 'Edit', edit_repository_path(@repository) %> |
-<%= link_to 'Back', repositories_path %>
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>

@@ -1,4 +1,12 @@
 WebSvn::Application.routes.draw do
+  get "group_to_repo/new"
+
+  get "group_to_repo/create"
+
+  get "group_to_repo/show"
+
+  get "group_to_repo/destroy"
+
   get "hooks/new"
 
   get "hooks/create"
@@ -27,6 +35,8 @@ WebSvn::Application.routes.draw do
   resources :users
   resources :sessions
   resources :repositories
+  resources :groups
+  resources :grouptorepos
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -20,11 +20,11 @@ ActiveRecord::Schema.define(:version => 20130418102510) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "groups_to_repos", :force => true do |t|
-    t.boolean  "r"
-    t.boolean  "w"
+  create_table "grouptorepos", :force => true do |t|
     t.integer  "group_id"
     t.integer  "repository_id"
+    t.boolean  "r"
+    t.boolean  "w"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

@@ -7,4 +7,8 @@ class CreateRepositories < ActiveRecord::Migration
       t.timestamps
     end
   end
+  
+  def self.down
+  	drop_table :repositories
+  end	
 end

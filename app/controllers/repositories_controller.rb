@@ -45,7 +45,8 @@ class RepositoriesController < ApplicationController
 
   def show
     @repository = Repository.find(params[:id])
-
+    @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id").first
+    @x = Group.where("id = ?", @gtr.group_id).select("group_name").first
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @repository }

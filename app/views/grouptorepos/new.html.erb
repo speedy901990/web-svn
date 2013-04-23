@@ -1,20 +1,22 @@
 <h1>GroupToRepo#new</h1>
 <%= form_for @grouptorepo do |f| %>
   <p>
-    <%= f.label :group_id %>
-    <%= f.text_field :group_id %>  
-  </p>
-  <p>
 	<%= f.label :repository_id %>
-    <%= f.text_field :repository_id %>
+    <%= f.collection_select :repository_id, Repository.all, :id, :repo_name %>
   </p>
   <p>
+    <%= f.label :group_id %>
+    <%= f.collection_select :group_id, Group.all, :id, :group_name %>  
+  </p>
+  <table>
+  <td>
 	<%= f.label :r %>
     <%= f.check_box :r %>
-  </p>
-   <p>
+  </td>
+   <td>
 	<%= f.label :w %>
     <%= f.check_box :w %>
-  </p>
+  </td>
+  </table>
   <p class="button"><%= f.submit %></p>
 <% end %>

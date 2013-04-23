@@ -27,12 +27,19 @@
 		<div id='cssmenu'>
 		  <ul>
 			<li/>
-<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "Home", root_path %></li>
 			<li class='has-sub'><%= link_to "Repository",
-			repositories_path %>
+									repositories_path %>
 			  <ul>
-				  <li><%= link_to "Create", new_repository_path %></li>
-				</ul>
+				<li><%= link_to "Create", new_repository_path %></li>
+				<li><%= link_to "Asign group to repository", new_grouptorepo_path %></li>
+			  </ul>
+			</li>
+			<li class='has-sub'><%= link_to "Group",
+									groups_path %>
+			  <ul>
+				<li><%= link_to "Create", new_group_path %></li>
+			  </ul>
 			</li>
 			<li class="last"><%= link_to "About", root_path %></li>
 		  </ul>

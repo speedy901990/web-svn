@@ -39,8 +39,16 @@
 									groups_path %>
 			  <ul>
 				<li><%= link_to "Create", new_group_path %></li>
+				<li><%= link_to "Asign user to group", new_usertogroup_path %></li>
 			  </ul>
 			</li>
+			<li class='has-sub'><%= link_to "User",
+									users_path %>
+			  <ul>
+				<li><%= link_to "Create", new_user_path %></li>
+			  </ul>
+			</li>
+			
 			<li class="last"><%= link_to "About", root_path %></li>
 		  </ul>
 		</div>

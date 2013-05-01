@@ -11,10 +11,7 @@ class GrouptoreposController < ApplicationController
       render "new"
     end
   end
-
-  def show
-  end
-
+  
  def destroy    
    @grouptorepo = Grouptorepo.find(params[:repository_id])
    @grouptorepo.destroy

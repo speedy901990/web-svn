@@ -1,10 +1,10 @@
-<%= form_for(@group) do |f| %>
-  <% if @group.errors.any? %>
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this repository from being saved:</h2>
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
       <ul>
-      <% @group.errors.full_messages.each do |msg| %>
+      <% @user.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,13 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :group_name %><br />
-    <%= f.text_field :group_name %>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description, :rows => "5" %>
-  </div>
+  <% #tu trzeba dopisac edytowanie hasla %>
   <div class="actions">
     <%= f.submit %>
   </div>

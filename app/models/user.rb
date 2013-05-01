@@ -24,4 +24,7 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
+  has_many :usertogroups, :dependent => :destroy
+  has_many :groups, through: :usertogroups
 end

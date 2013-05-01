@@ -51,6 +51,7 @@ WebSvn::Application.routes.draw do
   resources :repositories
   resources :groups
   resources :grouptorepos
+  resources :usertogroups
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

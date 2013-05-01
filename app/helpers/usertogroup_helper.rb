@@ -1,0 +1,2 @@
+module UsertogroupHelper
+end

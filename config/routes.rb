@@ -1,4 +1,18 @@
 WebSvn::Application.routes.draw do
+  get "usertogroup/index"
+
+  get "usertogroup/create"
+
+  get "usertogroup/new"
+
+  get "usertogroup/destroy"
+
+  get "usertogroup/edit"
+
+  get "usertogroup/show"
+
+  get "usertogroup/update"
+
   get "group_to_repo/new"
 
   get "group_to_repo/create"

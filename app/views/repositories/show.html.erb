@@ -9,8 +9,17 @@
   <%= @repository.description %>
 </p>
 <p>
-  <b>Members from:</b><br/>
+  <b>Group:</b><br/>
   <%= @x.group_name %>
+</p>
+<p>
+  <b>Members:</b><br/>
+	<% @usr.each do |f| %>
+       <% (User.where("id = ?", f.user_id).select("email").all).each do |z|%>
+       <%= z.email %>
+   	   <br/>
+   	   <% end %>
+   <% end %>
 </p>
 
 <%= link_to 'Edit', edit_repository_path(@repository) %> |

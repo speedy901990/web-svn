@@ -10,7 +10,12 @@
 </p>
 <p>
   <b>Members:</b><br/>
-  <%= @x.email %>
+  <% @gtr.each do |f| %>
+       <% (User.where("id = ?", f.user_id).select("email").all).each do |z|%>
+       <%= z.email %>
+   	   <br/>
+   	   <% end %>
+   <% end %>
 </p>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

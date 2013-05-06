@@ -1,0 +1,12 @@
+<h1>UserToGroup#new</h1>
+<%= form_for @usertogroup do |f| %>
+  <p>
+	<%= f.label :user_id %>
+    <%= f.collection_select :user_id, User.all, :id, :email %>
+  </p>
+  <p>
+    <%= f.label :group_id %>
+    <%= f.collection_select :group_id, Group.all, :id, :group_name %>  
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>

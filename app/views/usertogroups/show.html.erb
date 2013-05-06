@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Relation id:</b><br/>
+  <%= @usertogroup.id %>
+</p>
+<p>
+  <b>Group id:</b><br/>
+  <%= @usertogroup.group_id %>
+</p>
+<p>
+  <b>User id:</b><br/>
+  <%= @usertogroup.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_usertogroup_path(@usertogroup) %> |
+<%= link_to 'Back', usertogroups_path %>

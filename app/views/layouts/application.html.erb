@@ -48,6 +48,13 @@
 				<li><%= link_to "Create", new_user_path %></li>
 			  </ul>
 			</li>
+			<li class='has-sub'><%= link_to "Hook",
+									hooks_path %>
+			  <ul>
+				<li><%= link_to "Create", new_hook_path %></li>
+				<li><%= link_to "Use hook", use_hook_path %></li>
+			  </ul>
+			</li>
 			
 			<li class="last"><%= link_to "About", root_path %></li>
 		  </ul>

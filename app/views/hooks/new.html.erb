@@ -1,2 +1,16 @@
-<h1>Hooks#new</h1>
-<p>Find me in app/views/hooks/new.html.erb</p>
+<h1>Enter Hook template details</h1>
+<%= form_for @hook do |f| %>
+  <p>
+    <%= f.label :hook_name %>
+    <%= f.text_field :hook_name %>  
+  </p>
+  <p>
+	<%= f.label :description %>
+    <%= f.text_area :description, :size => "100x10" %>
+  </p>
+  <p>
+	<%= f.label :script %>
+	<%= f.text_area :script, :size => "100x20" %>
+  </p>
+  <p class="button"><%= f.submit %></p>
+<% end %>

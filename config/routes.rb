@@ -1,57 +1,21 @@
+
 WebSvn::Application.routes.draw do
-  get "usertogroup/index"
-
-  get "usertogroup/create"
-
-  get "usertogroup/new"
-
-  get "usertogroup/destroy"
-
-  get "usertogroup/edit"
-
-  get "usertogroup/show"
-
-  get "usertogroup/update"
-
-  get "group_to_repo/new"
-
-  get "group_to_repo/create"
-
-  get "group_to_repo/show"
-
-  get "group_to_repo/destroy"
-
-  get "hooks/new"
-
-  get "hooks/create"
-
-  get "hooks/index"
-
-  get "hooks/destroy"
-
-  get "hooks/show"
-
-  get "hooks/update"
-
-  get "hooks/edit"
-
-  #get "repositories/create_repo"
-
   root :to => "home#index"
 
- # get "sessions/new"
-  #get "users/new"
-  
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
-  
+  get "hooks/use" => "hooks#use", :as => "usehook"
+  get "hooks/saveusage" => "hooks#saveusage", :as => "saveusage"
+  get "hooks/selecthook" => "hooks#selecthook", :as => "selecthook"
+
   resources :users
   resources :sessions
   resources :repositories
   resources :groups
   resources :grouptorepos
   resources :usertogroups
+  resources :hooks
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,7 @@
+<h1>Hooks#use</h1>
+<%= form_tag("/hooks/saveusage", :method => "GET") do %>
+<%= text_area_tag :message , @myfile, :size => "100x40" %>
+<br/>
+<%= submit_tag("save") %>
+<% end %>
+<p>Find me in app/views/hooks/use.html.erb</p>

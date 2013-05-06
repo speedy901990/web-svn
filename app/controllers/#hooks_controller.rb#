@@ -18,7 +18,7 @@ class HooksController < ApplicationController
   end
 
   def index
-    @hooks = Hook.all
+    @hook = Hook.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -37,45 +37,22 @@ class HooksController < ApplicationController
   end
 
   def show
-    @hook = Hook.find(params[:id])
-   respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @hook }
-    end 
+
   end
 
   def edit
-    @hook = Hook.find(params[:id])
-  end
 
-  def update
-     @hook = Hook.find(params[:id])
-
-    respond_to do |format|
-      if @hook.update_attributes(params[:hook])
-        format.html { redirect_to hooks_path, notice: 'Hook was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @hook.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def saveusage
-      @myfile1 = File.open("test.tmpl", "w")
+      @myfile1 = File.open("repositories/TestRepo/hooks/post-commit.tmpl", "w")
       @myfile1.puts(params[:message])
       @myfile1.close()
       
-    redirect_to hooks_path
+    redirect_to repositories_path
   end
 
   def use
      @myfile = File.read("repositories/TestRepo/hooks/post-commit.tmpl")
   end
-  
-  def selecthook
-    
-  end
-  
 end

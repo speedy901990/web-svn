@@ -36,9 +36,10 @@ def edit
 
   def show
     @group = Group.find(params[:id])
-    @gtr = Usertogroup.where("group_id = ?", params[:id]).select("user_id").first
-    @x = User.where("id = ?", @gtr.user_id).select("email").first
+    @gtr = Usertogroup.where("group_id = ?", params[:id]).all
     
+    
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @group }

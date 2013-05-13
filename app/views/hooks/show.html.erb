@@ -1,5 +1,17 @@
-<h1>Hooks#show</h1>
-<%= form_tag( :action => "update") do %>
-<%= text_area_tag :message , @myfile, :size => "100x60" %>
-<%= submit_tag("save") %>
-<% end %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Hook name:</b><br/>
+  <%= @hook.hook_name %>
+</p>
+<p>
+  <b>Description</b><br/>
+  <%= @hook.description %>
+</p>
+<p>
+  <b>Script:</b><br/>
+  <%= text_area_tag :x, @hook.script, :readonly => "yes", :size => "100x30" %>
+</p>
+
+<%= link_to 'Edit', edit_hook_path(@hook) %> |
+<%= link_to 'Back', hooks_path %>

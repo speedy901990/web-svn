@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130501120120) do
   create_table "hooks", :force => true do |t|
     t.string   "hook_name"
     t.string   "description"
+    t.string   "script"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

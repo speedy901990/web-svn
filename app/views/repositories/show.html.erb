@@ -23,20 +23,12 @@
 </p>
 <p>
   <b>Hooks:</b><br/>
-  <table>
   <% @htr.each do |f| %>
-       <% (Hook.where("id = ?", f.hook_id).select("hook_name").all).each do |z|%>
-       <tr>
-    <td><%= z.hook_name %></td>
-    <td><%= link_to 'Show', z %></td>
-    <td><%= link_to 'Edit', edit_hook_path(f) %></td>
-    <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-       <br/>
-       <% end %>
-   <% end %>
- </table>
+  <%= f.hook_name %>
+  <br/>
+  <% end %>  
 </p>
-
+<%= link_to 'Add hook', edit_repository_path(@repository) %> 
+<br/>
 <%= link_to 'Edit', edit_repository_path(@repository) %> |
 <%= link_to 'Back', repositories_path %>

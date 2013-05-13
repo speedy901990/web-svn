@@ -30,7 +30,7 @@ WebSvn::Application.routes.draw do
   resources :grouptorepos
   resources :usertogroups
   resources :hooks
-  resources :hooktorepos
+  resources :repohooks
   
 
   # The priority is based upon order of creation:

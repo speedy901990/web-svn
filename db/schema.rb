@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(:version => 20130513131839) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "hooktorepos", :force => true do |t|
-    t.integer  "hook_id"
+  create_table "repohooks", :force => true do |t|
+    t.string   "hook_name"
     t.integer  "repository_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false

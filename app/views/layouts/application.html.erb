@@ -33,6 +33,7 @@
 			  <ul>
 				<li><%= link_to "Create", new_repository_path %></li>
 				<li><%= link_to "Asign group to repository", new_grouptorepo_path %></li>
+				<li><%= link_to "Asign hook name to repository", new_repohook_path %></li>
 			</ul>
 			</li>
 			<li class='has-sub'><%= link_to "Group",
@@ -48,7 +49,7 @@
 				<li><%= link_to "Create", new_user_path %></li>
 			  </ul>
 			</li>
-			<li class='has-sub'><%= link_to "Hook",
+			<li class='has-sub'><%= link_to "Hooks templates",
 									hooks_path %>
 			  <ul>
 				<li><%= link_to "Create", new_hook_path %></li>

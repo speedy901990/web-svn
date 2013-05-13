@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Relation id:</b><br/>
+  <%= @repohook.id %>
+</p>
+<p>
+  <b>Hook name:</b><br/>
+  <%= @repohook.hook_name %>
+</p>
+<p>
+  <b>Repository id:</b><br/>
+  <%= @repohook.repository_id %>
+</p>
+
+<%= link_to 'Edit', edit_repohook_path(@repohook) %> |
+<%= link_to 'Back', repohooks_path %>

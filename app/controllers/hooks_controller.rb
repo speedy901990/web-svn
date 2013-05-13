@@ -63,7 +63,7 @@ class HooksController < ApplicationController
   end
 
   def saveusage
-      @myfile1 = File.open("repositories/" + :repositories + "/hooks/post-commit.tmpl", "w")
+      @myfile1 = File.open("repositories/" + Repository.where("id = ?", params[:repositories]).first.repo_name + "/hooks/" + params[:hook_name], "w")
       @myfile1.puts(params[:message])
       @myfile1.close()
       
@@ -72,7 +72,7 @@ class HooksController < ApplicationController
 
   def use
      # @myfile = File.read("/repositories/"+ :repositories +"/hooks/"+ @name)
-    @myfile = File.read("repositories/testowe1/hooks/post-commit.tmpl")
+    @myfile = File.read("repositories/" + "testowe1" + "/hooks/post-commit.tmpl")
   
   end
   

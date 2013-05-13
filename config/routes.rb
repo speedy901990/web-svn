@@ -22,6 +22,7 @@ WebSvn::Application.routes.draw do
   get "hooks/use" => "hooks#use", :as => "use_hook"
   get "hooks/saveusage" => "hooks#saveusage", :as => "saveusage"
   get "hooks/selecthook" => "hooks#selecthook", :as => "selecthook"
+  get "hooks/use" => "hooks#use", :as => "use_hook"
 
   resources :users
   resources :sessions

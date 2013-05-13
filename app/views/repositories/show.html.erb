@@ -21,6 +21,16 @@
    	   <% end %>
    <% end %>
 </p>
+<p>
+  <b>Hooks:</b><br/>
+  <% @htr.each do |f| %>
+       <% (Hook.where("id = ?", f.hook_id).select("hook_name").all).each do |z|%>
+       <%= z.hook_name %>
+
+       <br/>
+       <% end %>
+   <% end %>
+</p>
 
 <%= link_to 'Edit', edit_repository_path(@repository) %> |
 <%= link_to 'Back', repositories_path %>

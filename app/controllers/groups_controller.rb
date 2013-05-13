@@ -38,8 +38,6 @@ def edit
     @group = Group.find(params[:id])
     @gtr = Usertogroup.where("group_id = ?", params[:id]).all
     
-    
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @group }

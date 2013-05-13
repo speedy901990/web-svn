@@ -50,6 +50,9 @@ class RepositoriesController < ApplicationController
 
     @usr = Usertogroup.where("group_id = ?", @gtr.group_id).all
     
+    @htr = Hooktorepo.where("repository_id = ?", params[:id]).all
+    # @hok = Hooktorepo.where("hook_id = ?", @htr.hook_id).all
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @repository }

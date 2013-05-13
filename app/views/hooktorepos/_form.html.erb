@@ -1,0 +1,25 @@
+<%= form_for(@hooktorepo) do |f| %>
+  <% if @hooktorepo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hooktorepo.errors.count, "error") %> prohibited this relation from being saved:</h2>
+
+      <ul>
+      <% @hooktorepo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hook_id %><br />
+    <%= f.text_field :hook_id %>
+  </div>
+  <div class="field">
+    <%= f.label :repository_id %><br />
+    <%= f.text_field :repository_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

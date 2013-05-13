@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501120120) do
+ActiveRecord::Schema.define(:version => 20130513131839) do
 
   create_table "groups", :force => true do |t|
     t.string   "group_name"
@@ -32,9 +32,15 @@ ActiveRecord::Schema.define(:version => 20130501120120) do
   create_table "hooks", :force => true do |t|
     t.string   "hook_name"
     t.string   "description"
-    t.string   "script"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "hooktorepos", :force => true do |t|
+    t.integer  "hook_id"
+    t.integer  "repository_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "repositories", :force => true do |t|

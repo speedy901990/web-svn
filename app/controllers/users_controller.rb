@@ -5,7 +5,18 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+
+    
     if @user.save
+      @configFile = File.open("config/apache_config/passwd","w")
+      @allUsers = User.all
+      
+      @configFile.puts("[users]\n")
+      @allUsers.each do |f|
+        @configFile.puts(f.email + " = " + f.password_hash + "\n")
+      end
+      @configFile.close()
+      
       redirect_to root_url, :notice => "Signed up!"
     else
       render "new"

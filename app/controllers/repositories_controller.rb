@@ -45,10 +45,18 @@ class RepositoriesController < ApplicationController
 
   def show
     @repository = Repository.find(params[:id])
-    @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id").first
-    @x = Group.where("id = ?", @gtr.group_id).select("group_name").first
 
-    @usr = Usertogroup.where("group_id = ?", @gtr.group_id).all
+    if (@repository != nil)
+      @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id").first
+    end
+    
+    if (@gtr != nil)
+      @x = Group.where("id = ?", @gtr.group_id).select("group_name").first
+    end
+    
+    if (@gtr != nil)
+      @usr = Usertogroup.where("group_id = ?", @gtr.group_id).all
+    end 
     
     @htr = Hook.all
     # @htr = Repohook.where("repository_id = ?", params[:id]).all

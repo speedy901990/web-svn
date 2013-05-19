@@ -10,15 +10,19 @@
 </p>
 <p>
   <b>Group:</b><br/>
+  <% if (@x != nil) %>
   <%= @x.group_name %>
+  <% end %>
 </p>
 <p>
   <b>Members:</b><br/>
-	<% @usr.each do |f| %>
-       <% (User.where("id = ?", f.user_id).select("email").all).each do |z|%>
-       <%= z.email %>
-   	   <br/>
-   	   <% end %>
+  <% if @usr != nil %>
+	   <% @usr.each do |f| %>
+          <% (User.where("id = ?", f.user_id).select("email").all).each do |z|%>
+          <%= z.email %>
+   	      <br/>
+   	      <% end %>
+      <% end %>
    <% end %>
 </p>
 <p>

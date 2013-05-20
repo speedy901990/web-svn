@@ -6,6 +6,23 @@ class UsertogroupsController < ApplicationController
   def create
     @usertogroup = Usertogroup.new(params[:usertogroup])
     if @usertogroup.save
+      @configFile = File.open("config/apache_config/authz","w")
+      @allGroups = Group.all
+      @configFile.puts("[groups]\n")
+
+      @allGroups.each do |f|
+        @usersInGroup = Usertogroup.where("group_id = ?", f.id).all
+        if (@usersInGroup != nil)
+          @configFile.puts(f.group_name + " = ")
+          
+          @usersInGroup.each do |g|
+            @usr = User.where("id = ?", g.user_id).first
+            @configFile.puts(@usr.email + ", ")
+          end
+        end
+        @configFile.puts("\n")
+      end
+      @configFile.close()
       redirect_to root_url, :notice => "User to group relation created!"
     else
       render "new"

@@ -30,8 +30,6 @@ class RepositoriesController < ApplicationController
 
   def destroy    
     @repository = Repository.find(params[:id])
-    par = @repository.repo_name
-    @result = %x[script/delete_repo.sh #{par}]
     @repository.destroy
 
     respond_to do |format|	
@@ -45,9 +43,10 @@ class RepositoriesController < ApplicationController
 
   def show
     @repository = Repository.find(params[:id])
-
+    @hooksList = %x[ls repositories/#{@repository.repo_name}/hooks/] #.split("\n")
+    
     if (@repository != nil)
-      @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id").first
+      @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id")
     end
     
     if (@gtr != nil)

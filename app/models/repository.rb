@@ -4,5 +4,5 @@ class Repository < ActiveRecord::Base
   has_many :grouptorepos, :dependent => :destroy
   has_many :groups, through: :grouptorepos
 
-  has_many :hooktorepos, :dependent => :destroy
+  has_many :hooktorepos
 end

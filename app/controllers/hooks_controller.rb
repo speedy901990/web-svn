@@ -72,7 +72,14 @@ class HooksController < ApplicationController
 
   def use
      # @myfile = File.read("/repositories/"+ :repositories +"/hooks/"+ @name)
-    @myfile = File.read("repositories/" + "testowe1" + "/hooks/post-commit.tmpl")
+    # @myfile = File.read("repositories/" + "testowe1" + "/hooks/post-commit.tmpl")
+    @templateHook = Hook.where("hook_name = ?", params[:hook_name]).first.script
+    
+    @newScriptFile = File.open("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name], "w")
+    @newScriptFile.puts(@templateHook)
+    @newScriptFile.close()
+    
+    @myfile = File.read("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name])
   
   end
   

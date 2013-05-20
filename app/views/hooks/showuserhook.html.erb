@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h1>Hooks#show user hook </h1>
+<p>
+  <b>Repo name:</b><br/>
+  <%= @repo_name %>
+</p>
+<p>
+  <b>Hook name</b><br/>
+  <%= @hook_name %>
+</p>
+<p>
+  <b>Script:</b><br/>
+  <%= text_area_tag :x, @script, :readonly => "yes", :size => "100x30" %>
+</p>
+
+<%= link_to 'Back', hooks_path %>

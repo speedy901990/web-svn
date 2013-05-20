@@ -30,12 +30,10 @@
   <% @htr.each do |f| %>
   <%= f.hook_name %>
   <% if @hooksList.index(f.hook_name) != nil %>
-    <%= "FOUND" %>
-    <%= link_to 'Show', f %>
-    <%= link_to 'Edit', edit_hook_path(f) %>
+    <%= link_to 'Show', showuserhook_hook_path(:hook_name => f.hook_name, :repo_name => @repository.repo_name) %>
+    <%= link_to 'Edit', edituserhook_hook_path(:hook_name => f.hook_name, :repo_name => @repository.repo_name) %>
   <% else %>
-    <%= "MISSING" %>
-    <%= link_to "Use hook", use_hook_path(:hook_name => f.hook_name, :repo_name => @repository.repo_name) %>
+    <%= link_to "Use", use_hook_path(:hook_name => f.hook_name, :repo_name => @repository.repo_name) %>
   <% end %>
   <br/>
   <% end %>  

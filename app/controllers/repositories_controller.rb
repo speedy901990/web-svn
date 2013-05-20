@@ -46,7 +46,7 @@ class RepositoriesController < ApplicationController
     @hooksList = %x[ls repositories/#{@repository.repo_name}/hooks/] #.split("\n")
     
     if (@repository != nil)
-      @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id")
+      @gtr = Grouptorepo.where("repository_id = ?", params[:id]).select("group_id").first
     end
     
     if (@gtr != nil)

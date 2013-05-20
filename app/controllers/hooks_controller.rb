@@ -63,7 +63,7 @@ class HooksController < ApplicationController
   end
 
   def saveusage
-      @myfile1 = File.open("repositories/" + Repository.where("id = ?", params[:repositories]).first.repo_name + "/hooks/" + params[:hook_name], "w")
+    @myfile1 = File.open("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name], "w")
       @myfile1.puts(params[:message])
       @myfile1.close()
       
@@ -71,8 +71,6 @@ class HooksController < ApplicationController
   end
 
   def use
-     # @myfile = File.read("/repositories/"+ :repositories +"/hooks/"+ @name)
-    # @myfile = File.read("repositories/" + "testowe1" + "/hooks/post-commit.tmpl")
     @templateHook = Hook.where("hook_name = ?", params[:hook_name]).first.script
     
     @newScriptFile = File.open("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name], "w")
@@ -80,11 +78,23 @@ class HooksController < ApplicationController
     @newScriptFile.close()
     
     @myfile = File.read("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name])
+    
+    @repo_name = params[:repo_name]
+    @hook_name = params[:hook_name]
   
   end
   
-  def selecthook
+  def edituserhook
+    @myfile = File.read("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name])
     
+    @repo_name = params[:repo_name]
+    @hook_name = params[:hook_name]
+  end
+  
+  def showuserhook
+    @repo_name = params[:repo_name]
+    @hook_name = params[:hook_name]
+    @script = File.read("repositories/" + params[:repo_name] + "/hooks/" + params[:hook_name])
   end
   
 end

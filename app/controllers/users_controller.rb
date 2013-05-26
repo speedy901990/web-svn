@@ -3,20 +3,21 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
-  def create
-    @user = User.new(params[:user])
-
-    
-    if @user.save
-      @configFile = File.open("config/apache_config/passwd","w")
+  def fileUpdate
+          @configFile = File.open("config/apache_config/passwd","w")
       @allUsers = User.all
       
-      @configFile.puts("[users]\n")
+      @configFile.write("[users]\n")
       @allUsers.each do |f|
-        @configFile.puts(f.email + " = " + f.password_hash + "\n")
+        @configFile.write(f.email + " = " + f.password_hash + "\n")
       end
       @configFile.close()
-      
+
+  end
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+      fileUpdate
       redirect_to root_url, :notice => "Signed up!"
     else
       render "new"
@@ -35,7 +36,7 @@ class UsersController < ApplicationController
   def destroy    
     @user = User.find(params[:id])
     @user.destroy
-
+    fileUpdate
     respond_to do |format|  
       format.html { redirect_to users_path }
       format.json { head :no_content }
@@ -60,6 +61,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        fileUpdate
         format.html { redirect_to users_path, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

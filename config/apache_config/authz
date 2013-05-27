@@ -1,16 +1,7 @@
 [groups]
-grupatestowa1 = slk1871@wp.pl, abc@abc.abc, slk1871@wp.pl, slk1871@wp.pl, 
-grupatestowa2 = slk1871@wp.pl, test@test.test, 
+grupatestowa1 = 
 
 # Project testowe1
 [testowe1:/]
-
-# Project testowe4
-[testowe4:/]
-
-# Project slawek
-[slawek:/]
-
-# Project testowe4
-[testowe4:/]
+@grupatestowa1 = rw
 

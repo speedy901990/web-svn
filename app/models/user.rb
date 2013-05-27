@@ -1,7 +1,7 @@
 require "digest"
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :user_status
+  attr_accessible :email, :password, :password_confirmation, :is_admin
   
   attr_accessor :password
   before_save :encrypt_password

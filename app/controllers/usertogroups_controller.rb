@@ -93,7 +93,7 @@ def index
 
     respond_to do |format|
       if @usertogroup.update_attributes(params[:group])
-        format.html { redirect_to usetrogroups_path, notice: 'Usertogroup was successfully updated.' }
+        format.html { redirect_to usertogroups_path, notice: 'Usertogroup was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

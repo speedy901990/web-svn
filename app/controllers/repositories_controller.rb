@@ -116,10 +116,14 @@ class RepositoriesController < ApplicationController
   
   def update
     @repository = Repository.find(params[:id])
-
+    par1 = params[:repository][:repo_name]
+    
+    
     respond_to do |format|
       if @repository.update_attributes(params[:repository])
         fileUpdate
+        par2 = params[:repository][:repo_name]
+        @result = %x[script/rename_repo.sh #{par1} #{par2}]
         format.html { redirect_to repositories_path, notice: 'Repository was successfully updated.' }
         format.json { head :no_content }
       else

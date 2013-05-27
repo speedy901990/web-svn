@@ -54,9 +54,6 @@ class RepositoriesController < ApplicationController
  
   def create    
     @repository = Repository.new(params[:repository])
-    @existingRepo = Repository.where("repo_name = ?", @repository.repo_name)
-    
-    if @existingRepo == nil
       if @repository.save
         fileUpdate
         par = params[:repository][:repo_name]
@@ -65,9 +62,6 @@ class RepositoriesController < ApplicationController
       else
         render "new"
       end
-    else
-      redirect_to root_url, :notice => "Repo already exist!"
-    end
   end
 
   def index

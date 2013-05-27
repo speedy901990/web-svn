@@ -16,18 +16,13 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(params[:user])
-    @existingUser = User.where("email = ?",@user.email)
-
-    #if @existingUser == nil
+   
       if @user.save
         fileUpdate
         redirect_to root_url, :notice => "Signed up!"
       else
         render "new"
       end
-    #else
-      #redirect_to root_url, :notice => "User already exist!"
-    #end
   end
 
   def index

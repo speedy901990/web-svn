@@ -5,17 +5,12 @@ class GroupsController < ApplicationController
   
   def create
     @group = Group.new(params[:group])
-    @existingGroup = Group.where("group_name = ?", @group.group_name)
-
-    if @exisitingGroup == nil
-      if @group.save
+    
+    if @group.save
         redirect_to root_url, :notice => "Group created!"
       else
         render "new"
       end
-    else
-        redirect_to root_url, :notice => "Group exist!"
-    end
   end
 
   def destroy

@@ -5,3 +5,6 @@ grupatestowa1 = slk187@wp.pl, aaa@aaa.aaa,
 [testowe1:/]
 @grupatestowa1 = r
 
+# Project testowe3
+[testowe3:/]
+

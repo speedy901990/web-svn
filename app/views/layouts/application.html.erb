@@ -27,16 +27,17 @@
 		<div id='cssmenu'>
 		  <ul>
 			<li/>
-			<% if (session[:user_is_admin] == true) %>
 			<li><%= link_to "Home", root_path %></li>
-			<% end %>
 			<li class='has-sub'><%= link_to "Repository",
 									repositories_path %>
+			  <% if (session[:user_is_admin] == true) %>
 			  <ul>
 				<li><%= link_to "Create", new_repository_path %></li>
 				<li><%= link_to "Asign group to repository", new_grouptorepo_path %></li>
 			</ul>
+			<% end %>
 			</li>
+			<% if (session[:user_is_admin] == true) %>
 			<li class='has-sub'><%= link_to "Group",
 									groups_path %>
 			  <ul>
@@ -56,7 +57,7 @@
 				<li><%= link_to "Create template", new_hook_path %></li>
 			  </ul>
 			</li>
-			
+			<% end %>
 			<li class="last"><%= link_to "About", root_path %></li>
 		  </ul>
 		</div>

@@ -23,10 +23,12 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </p>
+  <% if (session[:user_is_admin] == true) %>
   <p>
     <%= f.label :is_admin %>
     <%= f.check_box :is_admin %>
   </p>
+  <% end %>
 
   <p class="button"><%= f.submit %></p>
 <% end %>

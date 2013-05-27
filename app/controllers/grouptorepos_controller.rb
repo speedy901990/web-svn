@@ -32,17 +32,13 @@ def fileUpdate
         if (@groupsToRepos != nil)
           @groupsToRepos.each do |g|
             @group = Group.where("id = ?", g.group_id).first
-            # @tempLine = "@" + @group.group_name + " = "
             @configFile.write("@" + @group.group_name + " = ")
             if g.r == true
               @configFile.write("r")
-              # @tempLine = @tempLine + "r"  
             end
             if g.w == true
               @configFile.write("w")    
-            #  @tempLine = @tempLine + "w"  
             end
-            # @configFile.write(@tempLine)
             @configFile.write("\n")    
           end
         end

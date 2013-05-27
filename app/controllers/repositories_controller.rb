@@ -113,9 +113,7 @@ class RepositoriesController < ApplicationController
     end 
     
     @htr = Hook.all
-    # @htr = Repohook.where("repository_id = ?", params[:id]).all
-    # @hok = Hooktorepo.where("hook_id = ?", @htr.hook_id).all
-    
+   
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @repository }

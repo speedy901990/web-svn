@@ -12,7 +12,7 @@ class GroupsController < ApplicationController
         redirect_to root_url, :notice => "Group created!"
       else
         render "new"
-    end
+      end
     else
         redirect_to root_url, :notice => "Group exist!"
     end

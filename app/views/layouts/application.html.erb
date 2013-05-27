@@ -27,7 +27,9 @@
 		<div id='cssmenu'>
 		  <ul>
 			<li/>
+			<% if (session[:user_is_admin] == true) %>
 			<li><%= link_to "Home", root_path %></li>
+			<% end %>
 			<li class='has-sub'><%= link_to "Repository",
 									repositories_path %>
 			  <ul>
@@ -64,7 +66,7 @@
 		  <%= yield %>
 		</main>
 		<aside>
-		  TEST
+		  
 		</aside>
 	  </sub>
 	</div>

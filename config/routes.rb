@@ -12,6 +12,7 @@ WebSvn::Application.routes.draw do
   get "hooks/use" => "hooks#use", :as => "use_hook"
   get "hooks/edituserhook" => "hooks#edituserhook", :as => "edituserhook_hook"
   get "hooks/showuserhook" => "hooks#showuserhook", :as => "showuserhook_hook"
+  get "home/about" , :as => "about"
 
   resources :users
   resources :sessions

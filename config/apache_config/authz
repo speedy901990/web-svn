@@ -1,7 +1,5 @@
 [groups]
-grupatestowa1 = 
 
 # Project testowe1
 [testowe1:/]
-@grupatestowa1 = rw
 

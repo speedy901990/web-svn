@@ -1,4 +1,5 @@
 <h1>Enter Hook template details</h1>
+<% if (session[:user_is_admin] == true) %>
 <%= form_for @hook do |f| %>
   <p>
     <%= f.label :hook_name %>
@@ -13,4 +14,5 @@
 	<%= f.text_area :script, :size => "100x20" %>
   </p>
   <p class="button"><%= f.submit %></p>
+<% end %>
 <% end %>

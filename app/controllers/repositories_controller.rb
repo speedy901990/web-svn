@@ -28,8 +28,7 @@ class RepositoriesController < ApplicationController
         @configFile.write("\n")
       end
     
-      
-        @configFile.write("\n")
+      @configFile.write("\n")
       @allRepos.each do |f|
         @configFile.write("# Project " + f.repo_name + "\n")
         @configFile.write("[" + f.repo_name + ":/]" + "\n")
@@ -37,17 +36,13 @@ class RepositoriesController < ApplicationController
         if (@groupsToRepos != nil)
           @groupsToRepos.each do |g|
             @group = Group.where("id = ?", g.group_id).first
-            # @tempLine = "@" + @group.group_name + " = "
             @configFile.write("@" + @group.group_name + " = ")
             if g.r == true
               @configFile.write("r")
-              # @tempLine = @tempLine + "r"  
-            end
+              end
             if g.w == true
               @configFile.write("w")    
-            #  @tempLine = @tempLine + "w"  
             end
-            # @configFile.write(@tempLine)
             @configFile.write("\n")    
           end
         end
@@ -59,13 +54,19 @@ class RepositoriesController < ApplicationController
  
   def create    
     @repository = Repository.new(params[:repository])
-    if @repository.save
-      fileUpdate
-      par = params[:repository][:repo_name]
-      @result = %x[script/create_repo.sh #{par}]
-      redirect_to :controller => 'home', :action => 'index'
+    @existingRepo = Repository.where("repo_name = ?", @repository.repo_name)
+    
+    if @existingRepo == nil
+      if @repository.save
+        fileUpdate
+        par = params[:repository][:repo_name]
+        @result = %x[script/create_repo.sh #{par}]
+        redirect_to :controller => 'home', :action => 'index'
+      else
+        render "new"
+      end
     else
-      render "new"
+      redirect_to root_url, :notice => "Repo already exist!"
     end
   end
 
@@ -82,6 +83,10 @@ class RepositoriesController < ApplicationController
     @repository = Repository.find(params[:id])
     @repository.destroy
     fileUpdate
+    # par = params[:repository][:repo_name]
+    par = @repository.repo_name
+    @result = %x[script/delete_repo.sh #{par}]
+
     respond_to do |format|	
       format.html { redirect_to repositories_path }
       format.json { head :no_content }

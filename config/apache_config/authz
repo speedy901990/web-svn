@@ -4,26 +4,13 @@ grupatestowa2 = slk1871@wp.pl, test@test.test,
 
 # Project testowe1
 [testowe1:/]
-@grupatestowa1 = rw
-@grupatestowa2 = rw
-@grupatestowa1 = rw
-
-# Project testowe2
-[testowe2:/]
-@grupatestowa2 = rw
-@grupatestowa1 = r
-
-# Project testowe3
-[testowe3:/]
-@grupatestowa2 = r
-@grupatestowa2 = w
-
-# Project testowe1
-[testowe1:/]
 
 # Project testowe4
 [testowe4:/]
 
 # Project slawek
 [slawek:/]
+
+# Project testowe4
+[testowe4:/]
 

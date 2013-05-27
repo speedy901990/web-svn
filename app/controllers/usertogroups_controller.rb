@@ -23,7 +23,6 @@ class UsertogroupsController < ApplicationController
         @configFile.write("\n")
       end
 
-
       @configFile.write("\n")
       @allRepos.each do |f|
         @configFile.write("# Project " + f.repo_name + "\n")

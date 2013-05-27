@@ -9,18 +9,24 @@ class UsersController < ApplicationController
       
       @configFile.write("[users]\n")
       @allUsers.each do |f|
-        @configFile.write(f.email + " = " + f.password_hash + "\n")
+        @configFile.write(f.email + ":" + f.password_hash + "\n")
       end
       @configFile.close()
 
   end
   def create
     @user = User.new(params[:user])
-    if @user.save
-      fileUpdate
-      redirect_to root_url, :notice => "Signed up!"
+    @existingUser = User.where("email = ?",@user.email)
+
+    if @existingUser == nil
+      if @user.save
+        fileUpdate
+        redirect_to root_url, :notice => "Signed up!"
+      else
+        render "new"
+      end
     else
-      render "new"
+      redirect_to root_url, :notice => "User already exist!"
     end
   end
 

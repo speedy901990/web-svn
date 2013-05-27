@@ -51,7 +51,7 @@ class UsertogroupsController < ApplicationController
     @usertogroup = Usertogroup.new(params[:usertogroup])
     if @usertogroup.save
       fileUpdate
-      redirect_to root_url, :notice => "User to group relation created!"
+      redirect_to usertogroups_path, :notice => "User to group relation created!"
     else
       render "new"
     end
@@ -61,7 +61,7 @@ class UsertogroupsController < ApplicationController
    @usertogroup = Usertogroup.find(params[:group_id])
    @usertogroup.destroy
    respond_to do |format| 
-     format.html { redirect_to groups_path }
+     format.html { redirect_to usertogroups_path }
      format.json { head :no_content }
    end
  end

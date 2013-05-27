@@ -1,28 +1,3 @@
-[groups]
-testgroup = test@test.test, 
-grupatestowa2 = 
-ntg = 
-iii = 
 
-# Project TestRepoA=d
-[TestRepoA=d:/]
-@testgroup = rw
 
-# Project slawek
-[slawek:/]
-
-# Project xx
-[xx:/]
-
-# Project qqq
-[qqq:/]
-
-# Project cc
-[cc:/]
-
-# Project ddd
-[ddd:/]
-
-# Project xxxdsafsdfsf
-[xxxdsafsdfsf:/]
 

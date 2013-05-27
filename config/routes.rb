@@ -1,18 +1,5 @@
 
 WebSvn::Application.routes.draw do
-  get "hooktorepos/new"
-
-  get "hooktorepos/create"
-
-  get "hooktorepos/destroy"
-
-  get "hooktorepos/index"
-
-  get "hooktorepos/edit"
-
-  get "hooktorepos/show"
-
-  get "hooktorepos/update"
 
   root :to => "home#index"
 
@@ -33,7 +20,6 @@ WebSvn::Application.routes.draw do
   resources :grouptorepos
   resources :usertogroups
   resources :hooks
-  resources :repohooks
   
 
   # The priority is based upon order of creation:

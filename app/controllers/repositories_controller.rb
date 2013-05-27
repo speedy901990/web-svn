@@ -58,7 +58,7 @@ class RepositoriesController < ApplicationController
         fileUpdate
         par = params[:repository][:repo_name]
         @result = %x[script/create_repo.sh #{par}]
-        redirect_to :controller => 'home', :action => 'index'
+        redirect_to repositories_path
       else
         render "new"
       end

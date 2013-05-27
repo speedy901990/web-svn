@@ -52,7 +52,7 @@ def fileUpdate
     @grouptorepo = Grouptorepo.new(params[:grouptorepo])
     if @grouptorepo.save
       fileUpdate
-      redirect_to root_url, :notice => "Group to repo relation created!"
+      redirect_to grouptorepos_path, :notice => "Group to repo relation created!"
     else
       render "new"
     end

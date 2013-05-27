@@ -34,6 +34,7 @@
 			  <ul>
 				<li><%= link_to "Create", new_repository_path %></li>
 				<li><%= link_to "Asign group to repository", new_grouptorepo_path %></li>
+				<li><%= link_to "Edit existing relation group to repository", grouptorepos_path %></li>
 			</ul>
 			<% end %>
 			</li>
@@ -43,6 +44,7 @@
 			  <ul>
 				<li><%= link_to "Create", new_group_path %></li>
 				<li><%= link_to "Asign user to group", new_usertogroup_path %></li>
+				<li><%= link_to "Edit existing relation user to group", usertogroups_path %></li>
 			  </ul>
 			</li>
 			<li class='has-sub'><%= link_to "User",

@@ -8,7 +8,12 @@
 
 <% @usertogroup.each do |f| %>
   <tr>
-    <td><%= f.id %></td>
+    <% @group = Group.where("id = ?",f.group_id).first
+       @user = User.where("id = ?",f.user_id).first
+    %>
+    <td><%= @group.group_name %>
+      <%= @user.email %>  
+    </td>
     <td><%= link_to 'Show', f %></td>
     <td><%= link_to 'Edit', edit_usertogroup_path(f) %></td>
     <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>

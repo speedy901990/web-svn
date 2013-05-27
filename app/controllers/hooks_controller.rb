@@ -11,7 +11,7 @@ class HooksController < ApplicationController
   def create #TODO
      @hook = Hook.new(params[:hook])
     if @hook.save
-      redirect_to :controller => 'home', :action => 'index'
+      redirect_to hooks_path
     else
       render "new"
     end
@@ -31,7 +31,7 @@ class HooksController < ApplicationController
     @hook.destroy
 
     respond_to do |format|
-      format.html { redirect_to repositories_path }
+      format.html { redirect_to hooks_path }
       format.json { head :no_content }
     end
   end

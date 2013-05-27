@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
     @group = Group.new(params[:group])
     
     if @group.save
-        redirect_to root_url, :notice => "Group created!"
+        redirect_to groups_path, :notice => "Group created!"
       else
         render "new"
       end

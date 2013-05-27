@@ -8,7 +8,12 @@
 
 <% @grouptorepo.each do |f| %>
   <tr>
-    <td><%= f.id %></td>
+    <% @group = Group.where("id = ?",f.group_id).first
+       @repo = Repository.where("id = ?",f.repository_id).first
+    %>
+    <td><%= @repo.repo_name %>
+        <%= @group.group_name %>
+    </td>
     <td><%= link_to 'Show', f %></td>
     <td><%= link_to 'Edit', edit_grouptorepo_path(f) %></td>
     <td><%= link_to 'Destroy', f, confirm: 'Are you sure?', method: :delete %></td>

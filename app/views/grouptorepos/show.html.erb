@@ -5,12 +5,15 @@
   <%= @grouptorepo.id %>
 </p>
 <p>
+	<% @group = Group.where("id = ?",@grouptorepo.group_id).first
+       @repo = Repository.where("id = ?",@grouptorepo.repository_id).first
+    %>
   <b>Group id:</b><br/>
-  <%= @grouptorepo.group_id %>
+  <%= @group.group_name %>
 </p>
 <p>
   <b>Repository id:</b><br/>
-  <%= @grouptorepo.repository_id %>
+  <%= @repo.repo_name %>
 </p>
 
 <%= link_to 'Edit', edit_grouptorepo_path(@grouptorepo) %> |

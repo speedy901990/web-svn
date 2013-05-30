@@ -4,7 +4,8 @@ class UsermailinglistsController < ApplicationController
   end
 
   def create
-    @users = Usertogroup.where("group_id = ?", params[:group_id]).select("user_id").all
+    @g = params[:group_id]
+    @users = Usertogroup.where("group_id = ?", params[:group_id]).all #select("user_id").all
 
      #@usermailinglist = Usermailinglist.new(params[:usermailinglist])
    

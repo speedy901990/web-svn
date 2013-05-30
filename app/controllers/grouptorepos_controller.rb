@@ -52,7 +52,7 @@ def fileUpdate
     @grouptorepo = Grouptorepo.new(params[:grouptorepo])
     if @grouptorepo.save
       fileUpdate
-      redirect_to create_usermailinglist_path, :repo_id => params[:repo_id], :group_id => params[:group_id], :notice => "Group to repo relation created!"
+      redirect_to create_usermailinglist_path, :gtr => params[:grouptorepo], :group_id => params[:grouptorepo][:group_id], :notice => "Group to repo relation created!"
     else 
       render "new"
     end

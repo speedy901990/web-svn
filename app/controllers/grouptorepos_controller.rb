@@ -52,18 +52,18 @@ def fileUpdate
     @grouptorepo = Grouptorepo.new(params[:grouptorepo])
     if @grouptorepo.save
       fileUpdate
-      redirect_to grouptorepos_path, :notice => "Group to repo relation created!"
-    else
+      redirect_to create_usermailinglist_path, :repo_id => params[:repo_id], :group_id => params[:group_id], :notice => "Group to repo relation created!"
+    else 
       render "new"
     end
   end
   
  def destroy    
-   @grouptorepo = Grouptorepo.find(params[:repository_id])
+   @grouptorepo = Grouptorepo.find(params[:id])
    @grouptorepo.destroy
    fileUpdate
    respond_to do |format|	
-     format.html { redirect_to repositories_path }
+     format.html { redirect_to grouptorepos_path }
      format.json { head :no_content }
    end
  end

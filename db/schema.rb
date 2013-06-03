@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130528085431) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "usermailinglist", :force => true do |t|
+  create_table "usermailinglists", :force => true do |t|
     t.integer  "user_id"
     t.integer  "repo_id"
     t.boolean  "notification"

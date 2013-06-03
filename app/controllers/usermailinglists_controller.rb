@@ -5,16 +5,17 @@ class UsermailinglistsController < ApplicationController
 
   def create
     @g = params[:group_id]
-    @users = Usertogroup.where("group_id = ?", params[:group_id]).all #select("user_id").all
+    @r = params[:repo_id]
+    @users = Usertogroup.where("group_id = ?", @g).all #select("user_id").all
 
-     #@usermailinglist = Usermailinglist.new(params[:usermailinglist])
-   
-      #if @usermailinglist.save
-      #  redirect_to repositories_path, :notice => "Relation Created!"
-      #else
-      #  render "new"
-      #end
-  end
+    @users.each do |f|
+      @usermailinglist = Usermailinglist.new
+      @usermailinglist.user_id = f.user_id
+      @usermailinglist.repo_id = @r
+      @usermailinglist.save
+    end
+        redirect_to repositories_path, :notice => "Relation Created!"
+   end
 
   def edit
     @usermailinglist = Usermailinglist.find(params[:id])

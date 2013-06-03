@@ -64,7 +64,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        fileUpdate
+        fileUpdatefileUpdate
         format.html { redirect_to users_path, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else

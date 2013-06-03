@@ -1,6 +1,18 @@
 
 WebSvn::Application.routes.draw do
 
+  get "usermailinglists/new"
+
+  get "usermailinglists/edit"
+
+  get "usermailinglists/update"
+
+  get "usermailinglists/index"
+
+  get "usermailinglists/destroy"
+
+  get "usermailinglists/create"
+
   root :to => "home#index"
 
   get "log_out" => "sessions#destroy", :as => "log_out"
@@ -13,6 +25,7 @@ WebSvn::Application.routes.draw do
   get "hooks/edituserhook" => "hooks#edituserhook", :as => "edituserhook_hook"
   get "hooks/showuserhook" => "hooks#showuserhook", :as => "showuserhook_hook"
   get "home/about" , :as => "about"
+  get "usermailinglists/create" , :as => "create_usermailinglist"
 
   resources :users
   resources :sessions
@@ -21,7 +34,7 @@ WebSvn::Application.routes.draw do
   resources :grouptorepos
   resources :usertogroups
   resources :hooks
-  
+  resources :usermailinglists
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

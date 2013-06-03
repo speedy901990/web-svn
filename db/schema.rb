@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130501120120) do
+ActiveRecord::Schema.define(:version => 20130528085431) do
 
   create_table "groups", :force => true do |t|
     t.string   "group_name"
@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20130501120120) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "usermailinglist", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "repo_id"
+    t.boolean  "notification"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

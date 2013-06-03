@@ -1,7 +1,7 @@
 require "digest"
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :is_admin
+  attr_accessible :email, :password, :password_confirmation, :is_admin, :apache_hash
   
   attr_accessor :password
   before_save :encrypt_password
@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   
   def self.authenticate(email, password)
     user = find_by_email(email)
+    par_user = email
+    par_password = password
   if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
    # if user && user.password_hash == Digest::MD5.hexdigest(password)
       user
@@ -23,9 +25,11 @@ class User < ActiveRecord::Base
   
   def encrypt_password
     if password.present?
+      par_user = email
+      par_password = password
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
-      #self.password_hash = Digest::MD5.hexdigest(password)
+      self.apache_hash = %x[script/generate_hash.sh #{par_user} #{par_password}]
     end
   end
 

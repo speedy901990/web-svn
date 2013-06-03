@@ -4,12 +4,12 @@ class UsersController < ApplicationController
   end
   
   def fileUpdate
-          @configFile = File.open("config/apache_config/passwd","w")
+      @configFile = File.open("config/apache_config/passwd","w")
       @allUsers = User.all
       
       @configFile.write("[users]\n")
       @allUsers.each do |f|
-        @configFile.write(f.email + ":" + f.password_hash + "\n")
+      @configFile.write(f.email + ":" + f.apache_hash + "\n")
       end
       @configFile.close()
 

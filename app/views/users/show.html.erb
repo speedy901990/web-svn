@@ -3,6 +3,12 @@
 <p>
   <b>User name:</b><br/>
   <%= @user.email %>
+  <br/>
+  <b>Notifications:</b><br/>
+  <% @repositories.each do |f| %>
+  <%= @repositories %>
+  <% @a = Repository.where("id = ?",f).select("repo_name").first %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

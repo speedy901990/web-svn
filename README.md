@@ -1,9 +1,10 @@
 web-svn
 =======
 
-Web GUI for SVN.
+Web GUI for Subversion. 
 
 How to run:
+
 1. Clone project 
 2. Install Rails
 3. Run "bundle install"

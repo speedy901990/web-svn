@@ -6,8 +6,8 @@
   <br/>
   <b>Notifications:</b><br/>
   <% @repositories.each do |f| %>
-  <%= @repositories %>
-  <% @a = Repository.where("id = ?",f).select("repo_name").first %>
+  <%= check_box_tag 'accept' %>
+  <%= (@foundRepo = Repository.where("id = ?",f.repo_id).first).repo_name %><br/>
   <% end %>
 </p>
 

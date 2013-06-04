@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       else
         render "new"
       end
-  end
+  end 
 
   def index
     @user = User.all
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @gtr = Usertogroup.where("user_id = ?", params[:id]).select("group_id").first
 
-    @repositories = Usermailinglist.where('user_id = ?', params[:id]).select("repo_id").all
+    @repositories = Usermailinglist.where('user_id = ?', params[:id]).all#select("repo_id").all
     if @gtr != nil
     @x = Group.where("id = ?", @gtr.group_id).select("group_name").first
     end

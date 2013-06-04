@@ -12,6 +12,7 @@ class UsermailinglistsController < ApplicationController
       @usermailinglist = Usermailinglist.new
       @usermailinglist.user_id = f.user_id
       @usermailinglist.repo_id = @r
+      @usermailinglist.notification = false
       @usermailinglist.save
     end
         redirect_to repositories_path, :notice => "Relation Created!"

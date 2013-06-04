@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       else
         render "new"
       end
-  end
+  end 
 
   def index
     @user = User.all
@@ -50,9 +50,12 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @gtr = Usertogroup.where("user_id = ?", params[:id]).select("group_id").first
+
+    @repositories = Usermailinglist.where('user_id = ?', params[:id]).all#select("repo_id").all
     if @gtr != nil
     @x = Group.where("id = ?", @gtr.group_id).select("group_name").first
     end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }

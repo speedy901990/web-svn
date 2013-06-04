@@ -3,6 +3,12 @@
 <p>
   <b>User name:</b><br/>
   <%= @user.email %>
+  <br/>
+  <b>Notifications:</b><br/>
+  <% @repositories.each do |f| %>
+  <%= check_box_tag 'accept' %>
+  <%= (@foundRepo = Repository.where("id = ?",f.repo_id).first).repo_name %><br/>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
